@@ -1,0 +1,8 @@
+pytest . -v
+
+pytest . -v -p no:warnings
+pytest . -v -p no:warnings -m custom_mark_name
+pytest . -v -p no:warnings -m " not custom_mark_name"
+
+#To see the printed data
+pytest . -v -p no:warnings -s
