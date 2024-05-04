@@ -6,3 +6,9 @@ pytest . -v -p no:warnings -m " not custom_mark_name"
 
 #To see the printed data
 pytest . -v -p no:warnings -s
+
+pytest --ds=techhire.test_settings
+
+pytest --ds=techhire.test_settings -v
+pytest --ds=techhire.test_settings -v -s
+
