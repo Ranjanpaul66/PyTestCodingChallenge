@@ -1,0 +1,47 @@
+pytest . -v
+
+pytest . -v -p no:warnings
+pytest . -v -p no:warnings -m custom_mark_name
+pytest . -v -p no:warnings -m " not custom_mark_name"
+
+#To see the printed data
+pytest . -v -p no:warnings -s
+
+pytest --ds=techhire.test_settings
+
+pytest --ds=techhire.test_settings -v
+pytest --ds=techhire.test_settings -v -s
+
+pytest -v -s --durations=0
+pytest --ds=techhire.test_settings -v -s --durations=0
+
+
+#pytest "absulate_path/test_api.py -k "function_logger_name_start_with_logged"        `Here k is keyword based `
+pytest --ds=techhire.test_settings E:\pythonProject\PyTestCourse\PyTestDjangoApp\techhire\company\tests\test_api.py -k "logged"
+
+# single page level
+pytest --ds=techhire.test_settings -v -s --durations=0 E:\pythonProject\PyTestCourse\PyTestDjangoApp\techhire\company\tests\test_api.py
+
+# directory level - `tests`
+
+pytest --ds=techhire.test_settings -v -s --durations=0 E:\pythonProject\PyTestCourse\PyTestDjangoApp\techhire\company\tests\
+
+# keyword based function run
+pytest --ds=techhire.test_settings -v -s --durations=0 -k "create"
+pytest --ds=techhire.test_settings -v -s --durations=0 -k "zero"
+
+# HERE it will run test and exclude/deselect zero
+pytest --ds=techhire.test_settings -v -s --durations=0 -k "test and not zero"
+
+` to specific class run use absolute_path and :: className `
+pytest --ds=techhire.test_settings -v -s --durations=0 E:\pythonProject\PyTestCourse\PyTestDjangoApp\techhire\company\tests\test_api.py::TestPostCompanies
+
+` to specific class and function run use absolute_path and :: className::function_name `
+pytest --ds=techhire.test_settings -v -s --durations=0 E:\pythonProject\PyTestCourse\PyTestDjangoApp\techhire\company\tests\test_api.py::TestPostCompanies::test_creat_company_without_arguments_should_fail
+
+` for marker based all functions run use -m xfail`
+pytest --ds=techhire.test_settings -v -s --durations=0 -m xfail
+
+' to specific file run '
+
+pytest --ds=techhire.test_settings -v -s --durations=0 E:\pythonProject\PyTestCourse\PyTestDjangoApp\techhire\company\tests\native_pytest_api.py
